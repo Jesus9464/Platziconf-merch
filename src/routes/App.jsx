@@ -8,21 +8,26 @@ import NotFound from '../containers/NotFound';
 import '../styles/components/App.scss';
 import { Layaut } from '../components/Layaut';
 import { Information } from '../containers/Information';
+import { AppContext } from '../Context/AppContex';
+import useInitialState from '../Hooks/useInitialState';
 
 const App = () => {
+  const initialState = useInitialState();
   return (
-    <BrowserRouter>
-      <Layaut>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/checkout" component={Checkout} />
-          <Route exact path="/checkout/payment" component={Payment} />
-          <Route exact path="/checkout/success" component={Success} />
-          <Route exact path="/checkout/information" component={Information} />
-          <Route component={NotFound} />
-        </Switch>
-      </Layaut>
-    </BrowserRouter>
+    <AppContext.Provider value={initialState}>
+      <BrowserRouter>
+        <Layaut>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/checkout/payment" component={Payment} />
+            <Route exact path="/checkout/success" component={Success} />
+            <Route exact path="/checkout/information" component={Information} />
+            <Route component={NotFound} />
+          </Switch>
+        </Layaut>
+      </BrowserRouter>
+    </AppContext.Provider>
   );
 };
 
