@@ -25,8 +25,6 @@ export const Information = ({ history }) => {
     history.push('/checkout/payment');
   };
 
-  console.log(state);
-
   return (
     <div className="Information">
       <div className="Information-content">

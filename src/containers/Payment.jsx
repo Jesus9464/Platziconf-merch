@@ -54,8 +54,8 @@ const Payment = ({ history }) => {
             amount={handleSumTotal(cart)}
             onPaymentStart={() => console.log('Start Payment')}
             onPaymentSuccess={(data) => handlePaymentSuccess(data)}
-            onPaymentError={(error) => console.log(error)}
-            onPaymentCancel={(data) => console.log(data)}
+            onPaymentError={(error) => console.log('error', error)}
+            onPaymentCancel={(data) => console.log('data', data)}
           />
         </div>
       </div>
